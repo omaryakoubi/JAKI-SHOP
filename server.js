@@ -3,7 +3,6 @@ const app = express()
 const mongoose = require('mongoose')
 const path = require("path");
 
-require('dotenv').config({path:"./config/.env"});
 
 var productsRoute = require('./routes/productRoute')
 var userRoute = require('./routes/userRoute')
@@ -18,20 +17,16 @@ app.use('/api/orders/', orderRoute)
 
 if(process.env.NODE_ENV === 'production'){
 
-app.use(express.static(path.join(__dirname,"/client/build")));
+app.use('/' , express.static("/client/build"))
 
 app.get("*", (req, res)=>{
-  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-})
-  else{
-    app.get("/" , (req, res) {
-            res.send("Api is Running")
-            });
-  }
+  res.sendFile(path.resolve(__dirname, "/client/build/index.html"));
+});
 }
 
+
 const port = process.env.PORT || 5000;
-const uri = process.env.DBURL || "mongodb+srv://hamzatoukabi:02091994@shopdb.td4n9.mongodb.net/shopdb?retryWrites=true&w=majority"
+const uri = "mongodb+srv://hamzatoukabi:02091994@shopdb.td4n9.mongodb.net/shopdb?retryWrites=true&w=majority"
 
 app.get('/', function (req, res) {
     res.send('This is from Back-end')
