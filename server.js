@@ -24,7 +24,7 @@ app.get("*", function (request, response) {
 
 
 const port = process.env.PORT || 5000;
-const uri = process.env.DBURL
+const uri = process.env.DBURL || "mongodb+srv://hamzatoukabi:02091994@shopdb.td4n9.mongodb.net/shopdb?retryWrites=true&w=majority"
 
 app.get('/', function (req, res) {
     res.send('This is from Back-end')
