@@ -16,12 +16,14 @@ app.use('/api/users/' , userRoute)
 app.use('/api/orders/', orderRoute)
 
 
-app.use(express.static(path.resolve(__dirname, "./client/build")));
+if(process.env.NODE_ENV === 'production'){
 
-app.get("*", function (request, response) {
-  response.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
+app.use('/' , express.static("/client/build"))
+
+app.get("*", (req, res)=>{
+  res.sendFile(path.resolve(__dirname, "/client/build/index.html"));
 });
-
+}
 
 const port = process.env.PORT || 5000;
 const uri = process.env.DBURL || "mongodb+srv://hamzatoukabi:02091994@shopdb.td4n9.mongodb.net/shopdb?retryWrites=true&w=majority"
