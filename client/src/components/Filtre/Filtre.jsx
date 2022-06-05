@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { filtreProducts } from "../../actions/productAction";
 import "./Filtre.css";
@@ -9,11 +9,16 @@ function Filtre() {
 
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(filtreProducts(searchkey, category));
+  }, [searchkey]);
+
   return (
     <div>
       <div className="row justify-content-center ">
         <div className="col-m-2 ">
           <input
+            style={{ marginTop: "18px" }}
             value={searchkey}
             onChange={(e) => {
               setsearchkey(e.target.value);
@@ -22,26 +27,6 @@ function Filtre() {
             placeholder="Search"
             className="sr form-control"
           />
-        </div>
-        <div className="ca col-m-2 ">
-          <select
-            className="form-control"
-            value={category}
-            onChange={(e) => {
-              setcategory(e.target.value);
-            }}
-          >
-            <option value="all">All</option>
-            <option value="mobiles">Mobiles</option>
-            <option value="laptops">Laptops</option>
-            <option value="accessories">Accessories</option>
-            <option value="fashion">Fashion</option>
-            <option value="games">Games</option>
-          </select>
-        </div>
-
-        <div className="col-m-2 ml-5">
-          <button className="but btn-dark" onClick={()=>{dispatch(filtreProducts(searchkey , category))}}>FILTER</button>
         </div>
       </div>
     </div>

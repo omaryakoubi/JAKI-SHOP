@@ -22,21 +22,32 @@ function Home() {
 
   return (
     <div>
-      <Filtre/>
-      <hr  />
-      <div className="row">
+      <Filtre />
+      <hr />
+      <div className="homeContainer">
         {loading ? (
-          <Loader/>
+          <Loader />
         ) : error ? (
-          <Error error = "Something wrong!"/>
+          <Error error="Something wrong!" />
         ) : (
-          products.map((product) => {
-            return (
-              <div className="zoomoutcard col-md-3 mt-5 m-2 card p-2 shadow p-3 mb-5 bg-white rounded">
-                <Products product={product} />
-              </div>
-            );
-          })
+          <div style={{ display: "flex" }}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexWrap: "wrap",
+              }}
+            >
+              {products.map((product) => {
+                return (
+                  <div className="zoomoutcard col-md-3 mt-5 m-2 card p-2 shadow p-3 mb-5 bg-white rounded">
+                    <Products product={product} />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         )}
       </div>
     </div>

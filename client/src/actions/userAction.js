@@ -27,7 +27,7 @@ export const loginUser = (user) => (dispatch) => {
 
       window.location.href = "/";
 
-      if (user.email == ('hamzaadmin@gmail.com'))
+      if (user.email == ('chaimaadmin@gmail.com'))
       {
         window.location.href = "/admin";
       }
