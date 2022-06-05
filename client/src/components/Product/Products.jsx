@@ -12,10 +12,9 @@ function Products({ product }) {
           <ReactStars
             count={product.rating}
             size={28}
-            color={"#ffd700"}
+            color={"#BF382C"}
             char={"☆"}
             isHalf={true}
-            activeColor="#ffd700"
             readonly
           />
           <h1>

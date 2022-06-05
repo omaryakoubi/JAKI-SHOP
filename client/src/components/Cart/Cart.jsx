@@ -40,7 +40,7 @@ function Cart() {
                                        return  <option value={i+1}> {i+1} </option>
                                     })}</select></td>
                                     <td>{item.quantity * item.price} {item.unit} </td>
-                                    <td className="delete"><i class="far fa-trash-alt " onClick={()=>{dispatch(deleteFromCart(item))}}></i></td>
+                                    <td className="delete"><i style={{color:"#BF382C"}}class="far fa-trash-alt " onClick={()=>{dispatch(deleteFromCart(item))}}></i></td>
                                 </tr>
                             })}
                         </tbody>

@@ -13,8 +13,6 @@ function LoginForm() {
 
   const dispatch = useDispatch();
 
- 
-
   const login = (e) => {
     e.preventDefault();
     const user = {
@@ -23,14 +21,12 @@ function LoginForm() {
     };
 
     dispatch(loginUser(user));
-
   };
 
   useEffect(() => {
     if (localStorage.getItem("currentUser")) {
       window.location.href = "/";
     }
-    
   }, []);
 
   return (
@@ -47,42 +43,42 @@ function LoginForm() {
               <input
                 type="email"
                 placeholder="Email..."
-                className="form-control"
+                className="form-control mb-20"
                 required
                 value={email}
                 onChange={(e) => {
                   setemail(e.target.value);
-                  
                 }}
               />
               <input
                 type="password"
                 placeholder="Password..."
-                className="form-control"
+                className="form-control mb-20"
                 required
                 value={password}
                 onChange={(e) => {
                   setpassword(e.target.value);
                 }}
               />
-             
-
-              <div className="bt mt-2">
-                <button type="submit" className="btn">
-                  Login
+               <div className="bt mt-2">
+                <button
+                  type="submit"
+                  className="btn"
+                  style={{ color: "white", backgroundColor: "#BF382C" ,width:"200px"}}
+                >
+                 LOGIN
                 </button>
               </div>
             </form>
             <br />
-            <div>
-              <a href="/register" >
-                <h5>No account? Create one</h5>
-              </a>
+            <a href="/register" style={{ color: "#253C59" }}>
+              <h5>No account? Create one</h5>
+            </a>
             </div>
           </div>
         </div>
       </div>
-    </div>
+ 
   );
 }
 

@@ -32,9 +32,11 @@ router.post("/addreview", async (req, res) => {
 
   product.reviews.push(reviewmodel);
 
-  var rating = product.reviews.reduce((acc, x)=> acc + x.rating , 0) / product.reviews.length
+  var rating =
+    product.reviews.reduce((acc, x) => acc + x.rating, 0) /
+    product.reviews.length;
 
-  product.rating = rating
+  product.rating = rating;
 
   product.save((err) => {
     if (!err) {
@@ -43,78 +45,59 @@ router.post("/addreview", async (req, res) => {
   });
 });
 
+router.post("/deleteproduct", (req, res) => {
+  Product.findByIdAndRemove(req.body.productid, (err) => {
+    if (err) {
+      return res.status(400).json({ message: "Something wrong !" });
+    } else {
+      res.send("Product Deleted Successfully");
+    }
+  });
+});
 
-router.post("/deleteproduct" , (req, res) =>{
+router.post("/addproduct", (req, res) => {
+  const { product } = req.body;
 
-  Product.findByIdAndRemove(req.body.productid , (err)=>{
-      if(err){
-          return res.status(400).json({ message : 'Something wrong !'})
-      }
-      else{
-           res.send("Product Deleted Successfully") 
-      }
-  })
-
-})
-
-router.post("/addproduct" , (req , res) =>{
-  const {product} = req.body
-  
   const productModel = new Product({
-
-      name: product.name,
-      price: product.price,
-      unit: product.unit,
-      countInStock: product.countInStock,
-      imgurl: product.imgurl,
-      description: product.description,
-      rating: product.rating,
-      category : product.category
-
-  });
-  
-  productModel.save(err=>{
-
-    if(err)
-    {
-      return res.status(400).json({ message : 'Something wrong !'})
-    }
-    else{
-         res.send("Product Added Successfully")
-    }
-    
+    name: product.name,
+    price: product.price,
+    unit: product.unit,
+    countInStock: product.countInStock,
+    imgurl: product.imgurl,
+    description: product.description,
+    rating: product.rating,
+    category: product.category,
   });
 
-})  ;
+  productModel.save((err) => {
+    if (err) {
+      return res.status(400).json({ message: "Something wrong !" });
+    } else {
+      res.send("Product Added Successfully");
+    }
+  });
+});
 
-router.post("/updateproduct" , (req , res) =>{
-
-
-  Product.findByIdAndUpdate(req.body.productid  , {
-
-      name : req.body.updatedproduct.name,
-      price : req.body.updatedproduct.price,
-      unit : req.body.updatedproduct.unit,
-      countInStock : req.body.updatedproduct.countInStock,
-      imgurl : req.body.updatedproduct.imgurl,
-      description : req.body.updatedproduct.description,
-      category : req.body.updatedproduct.category
-
-  } ,(err)=>{
-      
-    if(err)
+router.post("/updateproduct", (req, res) => {
+  Product.findByIdAndUpdate(
+    req.body.productid,
     {
-      return res.status(400).json({ message : 'Something wrong !'})
+      name: req.body.updatedproduct.name,
+      price: req.body.updatedproduct.price,
+      unit: req.body.updatedproduct.unit,
+      countInStock: req.body.updatedproduct.countInStock,
+      imgurl: req.body.updatedproduct.imgurl,
+      description: req.body.updatedproduct.description,
+      category: req.body.updatedproduct.category,
+    },
+    (err) => {
+      if (err) {
+        return res.status(400).json({ message: "Something wrong !" });
+      } else {
+        res.send("Product Updated Successfully");
+      }
     }
-    else{
-         res.send("Product Updated Successfully")
-    }
-
-
-  })
-  
-  
-
-})  ;
+  );
+});
 
 module.exports = router;

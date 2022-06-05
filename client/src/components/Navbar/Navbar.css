@@ -1,12 +1,12 @@
 .navbar {
-    background-color: rgb(30, 30, 70);
+    background-color:#253C59  ;
     }
     .nav-link {
-    color: cornsilk !important;
+    color: white !important;
     }
     .logo {
-      width: 143px;
-      height: 45px;
+      width: 220px;
+      height: 55px;
     }
     
     .navbar-nav{
@@ -15,7 +15,6 @@
       margin-left: auto !important;
     }
 
-    
 
     .bd {
       border-radius: 8px;

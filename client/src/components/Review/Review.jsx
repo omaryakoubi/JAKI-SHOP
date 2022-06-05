@@ -3,10 +3,9 @@ import { useDispatch } from "react-redux";
 import ReactStars from "react-rating-stars-component";
 import "./Review.css";
 import { addProductReview } from "../../actions/productAction";
-import { useToasts } from 'react-toast-notifications'; 
+import { useToasts } from "react-toast-notifications";
 
 function Review({ product }) {
-
   const { addToast } = useToasts();
 
   const dispatch = useDispatch();
@@ -14,38 +13,33 @@ function Review({ product }) {
   const [comment, setcomment] = useState("");
 
   function sendreview() {
-
-    if(localStorage.getItem("currentUser"))
-    {
+    if (localStorage.getItem("currentUser")) {
       const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
-    var alreadyreviewed;
+      var alreadyreviewed;
 
-    for (var i = 0; i < product.reviews.length; i++) {
-      if (product.reviews[i].userid == currentUser._id) {
-        alreadyreviewed = true;
+      for (var i = 0; i < product.reviews.length; i++) {
+        if (product.reviews[i].userid == currentUser._id) {
+          alreadyreviewed = true;
+        }
       }
-    }
 
+      if (alreadyreviewed) {
+        alert("You have already reviewed this product!");
+      } else {
+        const review = {
+          rating: rating,
+          comment: comment,
+        };
 
-    if (alreadyreviewed) {
-      alert("You have already reviewed this product!");
+        dispatch(addProductReview(review, product._id));
+        addToast("You Review was added successfully", {
+          appearance: "success",
+        });
+      }
     } else {
-      const review = {
-        rating: rating,
-        comment: comment,
-      };
-
-      dispatch(addProductReview(review, product._id));
-      addToast('You Review was added successfully', { appearance: 'success' });
+      window.location.href = "/login";
     }
-    }
-    else{
-      window.location.href='/login'
-    }
-
-
-    
   }
 
   // console.log(product.reviews)
@@ -64,7 +58,7 @@ function Review({ product }) {
         color={"black"}
         char={"☆"}
         isHalf={true}
-        activeColor="#ffd700"
+        activeColor="#BF382C"
         onChange={(e) => {
           setrating(e);
         }}
@@ -78,31 +72,40 @@ function Review({ product }) {
           setcomment(e.target.value);
         }}
       />
-      <button className="btn mt-3 ml-1" onClick={sendreview}>
+      <button
+        className="btn mt-3 ml-1"
+        style={{
+          color: "white",
+          backgroundColor: "#BF382C",
+          width: "200px",
+        }}
+        onClick={sendreview}
+      >
         {" "}
         Submit Review{" "}
       </button>
       <hr />
 
       <h5 className="titlerev">Lastest Reviews</h5>
-      {product.reviews && (product.reviews.map(review=>{
-        return <div> 
-          <ReactStars 
-                        count={review.rating}
-                        size={28}
-                        color={"#ffd700"}
-                        char={"☆"}
-                        isHalf={true}
-                        activeColor="#ffd700"
-                        readonly
-                        
-                    />
-                     
-                    <p>{review.comment}</p>
-                    <p>By : {review.name} </p>
-                    <hr />
-        </div>
-      }))}
+      {product.reviews &&
+        product.reviews.map((review) => {
+          return (
+            <div>
+              <ReactStars
+                count={review.rating}
+                size={28}
+                color={"#BF382C"}
+                char={"☆"}
+                isHalf={true}
+                readonly
+              />
+
+              <p>{review.comment}</p>
+              <p>By : {review.name} </p>
+              <hr />
+            </div>
+          );
+        })}
     </div>
   );
 }

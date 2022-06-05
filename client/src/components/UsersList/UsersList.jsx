@@ -43,7 +43,7 @@ function UsersList() {
                             <td>{user._id}</td>
                             <td>{user.username}</td>
                             <td>{user.email}</td>
-                            <td className="delete"><i class="far fa-trash-alt " onClick={()=>{dispatch(deleteUser(user._id))}} ></i></td>
+                            <td className="delete"><i class="far fa-trash-alt " style={{color:"#bf382c"}} onClick={()=>{dispatch(deleteUser(user._id))}} ></i></td>
                         </tr>
                     }))}
                 </tbody>

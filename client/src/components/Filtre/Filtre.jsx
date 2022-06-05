@@ -14,7 +14,7 @@ function Filtre() {
   }, [searchkey]);
 
   return (
-    <div>
+    <div   style={{marginBottom:"20px"}}>
       <div className="row justify-content-center ">
         <div className="col-m-2 ">
           <input

@@ -37,14 +37,19 @@ function Checkout({ amount }) {
 
       <StripeCheckout
         token={tokenHandler}
-        amount={amount * 100}
+        amount={amount}
         shippingAddress 
         billingAddress
         currency="TTD"
-        stripeKey="pk_test_51JLnihDp6xifSmVcHA3bEOOl1a8WyjlsH6oS8v0kStNRIdFtqIvOHvDWVwSnZEIi5prBlekCfIUQySdm4ozAdaX400SXsrEzcW"
+        stripeKey="pk_test_51L7LQ1HDXRSJrbqUzoNgF2pOWAzxe4n1G17v3a2bTKNLrmVFGUqIHWJ72Taftx9TWmBDNtrQ5VQs18VlOnprhyAr00aCxqvjb8"
       >
         <div className="bt">
-          <button className="btn" onClick={validation}>PAY NOW</button>
+          <button className="btn" 
+                style={{
+                  color: "white",
+                  backgroundColor: "#BF382C",
+                  width: "200px",
+                }} onClick={validation}>PAY NOW</button>
         </div>
       </StripeCheckout>
     </div> 

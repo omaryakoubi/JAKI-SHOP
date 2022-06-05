@@ -2,7 +2,7 @@ input{
     box-shadow: none ;
     margin-top: 10px ;
     border-color: 1px solid black ;
-
+    
 }
 
 .frm{
@@ -12,6 +12,7 @@ input{
 .btn {
     display: flex;
     justify-content: center;
+    
     text-align: center;
     margin-top: 10px;
 }
@@ -19,4 +20,7 @@ input{
 h4{
     font-size: 24px;
     font-family: serif;
+}
+.mb-20{
+    margin-bottom: 20px !important;
 }

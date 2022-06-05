@@ -6,6 +6,7 @@ h1 {
   font-size: 18px !important;
   text-align: left;
   color: black;
+  text-decoration: none !important;
 }
 .img-fluid {
   height: 200px;
@@ -15,5 +16,5 @@ h1 {
   transition: transform 0.2s;
 }
 .zoomoutcard:hover {
-  transform: scale(1.03);
+  transform: scale(1.02);
 }

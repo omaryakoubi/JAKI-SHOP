@@ -131,7 +131,7 @@ function AddNewProduct() {
             <button
               className="btn mt-2"
               type="submit"
-              style={{ float: "right" }}
+            style={{color: "white", backgroundColor: "#BF382C" ,width:"200px"}}
             >
               Add New Product
             </button>

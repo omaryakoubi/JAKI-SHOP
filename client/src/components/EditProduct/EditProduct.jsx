@@ -145,7 +145,7 @@ function EditProduct({ match }) {
               <button
                 className="btn mt-2"
                 type="submit"
-                style={{ float: "right" }}
+                style={{ color: "white", backgroundColor: "#BF382C" ,width:"200px"}}
               >
                 Update Product
               </button>

@@ -7,8 +7,8 @@ import Success from "../Success/Success";
 import "./RegisterForm.css";
 
 function RegisterForm() {
-  const registerstate = useSelector(state=>state.registerNewUserReducer)
-  const {loading, error , success} = registerstate
+  const registerstate = useSelector((state) => state.registerNewUserReducer);
+  const { loading, error, success } = registerstate;
   const [username, setusername] = useState("");
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
@@ -35,16 +35,18 @@ function RegisterForm() {
       <div className="row justify-content-center">
         <div className="zoomoutcard col-md-5 card p-5 shadow p-3 mb-5 bg-white rounded">
           <div className="div">
-            <h4 className="text-center">REGISTER</h4>
-            {loading && (<Loader/>)}
-            {error && (<Error error ="Email Already Exist!"/>)}
-            {success && (<Success success ="You are successfully Registred!"/>)}
+            <h4 className="text-center" style={{ color: "#253C59" }}>
+              REGISTER
+            </h4>
+            {loading && <Loader />}
+            {error && <Error error="Email Already Exist!" />}
+            {success && <Success success="You are successfully Registred!" />}
 
             <form onSubmit={register}>
               <input
                 type="text"
                 placeholder="Username..."
-                className="form-control"
+                className="form-control mb-20"
                 required
                 value={username}
                 onChange={(e) => {
@@ -54,7 +56,7 @@ function RegisterForm() {
               <input
                 type="email"
                 placeholder="Email..."
-                className="form-control"
+                className="form-control mb-20"
                 required
                 value={email}
                 onChange={(e) => {
@@ -64,7 +66,7 @@ function RegisterForm() {
               <input
                 type="password"
                 placeholder="Password..."
-                className="form-control"
+                className="form-control mb-20"
                 required
                 value={password}
                 onChange={(e) => {
@@ -81,16 +83,20 @@ function RegisterForm() {
                   setcpassword(e.target.value);
                 }}
               />
-              <div className="bt mt-2" >
-                <button type="submit" className="btn">
+              <div className="bt mt-2">
+                <button
+                  type="submit"
+                  className="btn"
+                  style={{ color: "white", backgroundColor: "#BF382C", width:"200px"}}
+                >
                   REGISTER NOW
                 </button>
               </div>
             </form>
             <br />
-            <a href="/login" >
-                <h5>Registred? Click here to Login!</h5>
-              </a>
+            <a href="/login" style={{ color: "#253C59" }}>
+              <h5>Already Registred? Click here to Login!</h5>
+            </a>
           </div>
         </div>
       </div>

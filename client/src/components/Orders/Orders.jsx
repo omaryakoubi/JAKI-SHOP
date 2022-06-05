@@ -37,7 +37,7 @@ function Orders() {
           <br />
 
           <table className="table table-striped ">
-            <thead className='thead-dark'>
+            <thead style={{ backgroundColor: "#BF382C",color:"white"}}>
               <tr>
                 <th>Order ID</th>
                 <th>Amount</th>

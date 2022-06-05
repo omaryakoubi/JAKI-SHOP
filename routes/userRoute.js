@@ -71,11 +71,12 @@ router.post("/deleteuser", (req, res) => {
 router.put("/createAdmin/:id", async (req, res) => {
   try {
     const { id } = req.params;
+    console.log(id);
     const user = await User.findById(id);
     if (user) {
+      console.log(user);
       await User.findByIdAndUpdate(id, { isAdmin: true });
-      console.log(x);
-      res
+      return res
         .status(200)
         .json({ status: true, message: "user has been prometed to admin" });
     } else {

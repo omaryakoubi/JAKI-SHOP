@@ -8,6 +8,7 @@ import { getAllProducts } from "../../actions/productAction";
 import Loader from "../Loader/Loader";
 import Error from "../Error/Error";
 import Filtre from "../Filtre/Filtre";
+import Carrousel from "../Caroussel/Caroussel";
 
 function Home() {
   const getallproductsstate = useSelector(
@@ -23,6 +24,7 @@ function Home() {
   return (
     <div>
       <Filtre />
+      <Carrousel products={products}/>
       <hr />
       <div className="homeContainer">
         {loading ? (
@@ -41,7 +43,8 @@ function Home() {
             >
               {products.map((product) => {
                 return (
-                  <div className="zoomoutcard col-md-3 mt-5 m-2 card p-2 shadow p-3 mb-5 bg-white rounded">
+                  <div className="zoomoutcard col-md-3 mt-5 m-2 card p-2 shadow p-3 mb-5 bg-white rounded"
+                  >
                     <Products product={product} />
                   </div>
                 );

@@ -21,12 +21,12 @@ const Category = () => {
   };
 
   return (
-    <div
+    <div className="divCat"
       style={{
         display: "flex",
         justifyContent: "space-evenly",
         alignItems: "center",
-        backgroundColor: "#2b2b51",
+        backgroundColor: "#3966BF",
         margin: "auto auto",
         color: "white",
         padding: "10px",

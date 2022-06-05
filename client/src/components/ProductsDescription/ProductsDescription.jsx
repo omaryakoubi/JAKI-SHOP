@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../actions/cartAction";
 import { getProductById } from "../../actions/productAction";
-import { useToasts } from 'react-toast-notifications';
+import { useToasts } from "react-toast-notifications";
 import Error from "../Error/Error";
 import Loader from "../Loader/Loader";
 import Review from "../Review/Review";
@@ -23,7 +23,7 @@ function ProductsDescription({ match }) {
 
   function addtocart() {
     dispatch(addToCart(product, quantity));
-    addToast('You product was added successfully', { appearance: 'success' });
+    addToast("You product was added successfully", { appearance: "success" });
   }
 
   useEffect(() => {
@@ -33,13 +33,13 @@ function ProductsDescription({ match }) {
   return (
     <div>
       {loading ? (
-        <Loader/>
+        <Loader />
       ) : error ? (
-        <Error error = "Something wrong!"/>
+        <Error error="Something wrong!" />
       ) : (
-        <div className="row">
+        <div className="row  mt-2">
           <div className="col">
-            <div className="card m-2 shadow p-3 mb-5 bg-white rounded">
+            <div className="card shadow p-3 mb-5 ml-5 bg-white rounded" style={{width:"50%"}}>
               <h1>{product.name}</h1>
               <img src={product.imgurl} />
               <p>{product.description}</p>
@@ -66,14 +66,20 @@ function ProductsDescription({ match }) {
                 </select>
               </h1>
               <hr />
-              <button className="btn" onClick={addtocart}>
-              
+              <button
+                className="btn"
+                style={{
+                  color: "white",
+                  backgroundColor: "#BF382C",
+                  width: "200px",
+                }}
+                onClick={addtocart}
+              >
                 ADD TO CART
               </button>
-              
             </div>
             <hr />
-            <Review product ={product}/>
+            <Review product={product} />
           </div>
         </div>
       )}

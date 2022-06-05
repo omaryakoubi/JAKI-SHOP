@@ -25,8 +25,8 @@ function App() {
       autoDismissTimeout={4000}
     >
       <div className="App">
-        <Navbar />
-        <Category />
+        <Navbar/>
+        <Category/>
         <BrowserRouter>
           <Route path="/" component={Home} exact />
           <Route path="/product/:id" component={ProductsDescription} />

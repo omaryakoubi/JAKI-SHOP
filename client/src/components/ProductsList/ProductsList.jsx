@@ -48,6 +48,7 @@ function ProductsList() {
                   <td>
                     <i
                       className="delete far fa-trash-alt mr-3 "
+                      style={{color:"#bf382c"}}
                       onClick={() => {
                         dispatch(deleteProduct(product._id));
                       }}

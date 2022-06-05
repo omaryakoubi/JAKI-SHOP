@@ -23,7 +23,7 @@ if (process.env.NODE_ENV === "production") {
 
 const port = process.env.PORT || 5000;
 const uri =
-  "mongodb+srv://bessem:bessem@cluster0.fjstc.mongodb.net/?retryWrites=true&w=majority";
+  "mongodb+srv://chayma:chayma@cluster0.7gwdc.mongodb.net/?retryWrites=true&w=majority";
 
 app.get("/", function (req, res) {
   res.send("This is from Back-end");
