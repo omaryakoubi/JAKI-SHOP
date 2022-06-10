@@ -48,7 +48,6 @@ export const filtreProducts = (searchkey, category) => (dispatch) => {
       }
 
       if (category.toLowerCase() !== "all") {
-        console.log(category, "omarrrrrrrrrr");
         filtredproducts = res.data.filter((product) => {
           return product.category
             .toLowerCase()

@@ -1,6 +1,8 @@
-.listor{
-    
-    width: 38.5cm !important;
-    justify-content: left !important;
-    margin-right: 20cm!important;
+.listor {
+  background: url("https://img.freepik.com/free-photo/people-is-using-tablet-order-add-products-cart-with-product-shelf-background-that-represent-shopping-online-idea_29489-177.jpg?w=2000")
+    no-repeat center;
+  width: 100% !important;
+  justify-content: left !important;
+  height: 100vh;
+  margin-right: 20cm !important;
 }

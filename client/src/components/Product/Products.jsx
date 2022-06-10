@@ -12,7 +12,7 @@ function Products({ product }) {
           <ReactStars
             count={product.rating}
             size={28}
-            color={"#BF382C"}
+            color="#ffd700"
             char={"☆"}
             isHalf={true}
             readonly

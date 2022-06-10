@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addProduct } from "../../actions/productAction";
 import Error from "../Error/Error";
 import Loader from "../Loader/Loader";
-import Success from "../Success/Success"
+import Success from "../Success/Success";
 
 function AddNewProduct() {
   const [name, setname] = useState("");
@@ -17,9 +17,9 @@ function AddNewProduct() {
 
   const dispatch = useDispatch();
 
-  const addnewproductstate = useSelector( state => state.addProductReducer)
-  const {success , loading , error} = addnewproductstate
- 
+  const addnewproductstate = useSelector((state) => state.addProductReducer);
+  const { success, loading, error } = addnewproductstate;
+
   const addproduct = (e) => {
     e.preventDefault();
     const product = {
@@ -30,20 +30,19 @@ function AddNewProduct() {
       imgurl: imgurl,
       description: description,
       rating: rating,
-      category : category
+      category: category,
     };
-    
-    dispatch(addProduct(product))
+
+    dispatch(addProduct(product));
   };
 
   return (
     <div>
       <div className="row">
         <div className="col-md-8">
-
-          {success && (<Success success ="Product Added Successfully"/>)}
-          {loading && (<Loader/>)}
-          {error && (<Error error ="Something wrong!"/>)}
+          {success && <Success success="Product Added Successfully" />}
+          {loading && <Loader />}
+          {error && <Error error="Something wrong!" />}
           <h2>Add New Products</h2>
           <form onSubmit={addproduct}>
             <input
@@ -131,7 +130,11 @@ function AddNewProduct() {
             <button
               className="btn mt-2"
               type="submit"
-            style={{color: "white", backgroundColor: "#BF382C" ,width:"200px"}}
+              style={{
+                color: "white",
+                backgroundColor: "teal",
+                width: "200px",
+              }}
             >
               Add New Product
             </button>

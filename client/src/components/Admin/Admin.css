@@ -1,14 +1,12 @@
-.admin li{
- list-style-type: none ;
- display: inline ;
- margin-left: 20px;
+.admin li {
+  list-style-type: none;
+  display: inline;
+  margin-left: 20px;
 }
 
-.admin{
-    display: flex;
-    justify-content: space-around;
-    background-color:#bf382c;
-    margin-top: 1cm;
-    
-    
+.admin {
+  display: flex;
+  justify-content: space-around;
+  background-color: teal;
+  margin-top: 1cm;
 }

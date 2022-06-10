@@ -39,7 +39,10 @@ function ProductsDescription({ match }) {
       ) : (
         <div className="row  mt-2">
           <div className="col">
-            <div className="card shadow p-3 mb-5 ml-5 bg-white rounded" style={{width:"50%"}}>
+            <div
+              className="card shadow p-3 mb-5 ml-5 bg-white rounded"
+              style={{ width: "50%" }}
+            >
               <h1>{product.name}</h1>
               <img src={product.imgurl} />
               <p>{product.description}</p>
@@ -70,7 +73,7 @@ function ProductsDescription({ match }) {
                 className="btn"
                 style={{
                   color: "white",
-                  backgroundColor: "#BF382C",
+                  backgroundColor: "teal",
                   width: "200px",
                 }}
                 onClick={addtocart}

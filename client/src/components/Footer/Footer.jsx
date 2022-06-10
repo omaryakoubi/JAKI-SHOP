@@ -1,120 +1,159 @@
 import React from "react";
 import styled from "styled-components";
 
-export const Box = styled.div`
-  padding: 80px 60px;
-  background: #253c59;
-  margin-top: 15%;
-  bottom: 0;
-  height: 400px;
-  width: 100%;
+const Container = styled.div`
+  background-color: #ebebeb;
+  display: flex;
 `;
 
-export const Container = styled.div`
+const Left = styled.div`
   display: flex;
   flex-direction: column;
+  padding: 20px;
+  flex: 1;
+`;
+
+const Logo = styled.h1``;
+const Desc = styled.div`
+  margin: 30px 215px 30px 0px;
+`;
+
+const SocialContainer = styled.div`
+  display: flex;
+`;
+const SocialIcon = styled.div`
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: ${(props) => props.color};
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
   justify-content: center;
-  max-width: 1000px;
-  margin: 0 auto;
+  color: white;
 `;
 
-export const Column = styled.div`
-  display: flex;
+const Title = styled.h3`
+  margin-bottom: 30px;
+`;
+const List = styled.ul`
+  maring: 0;
+  list-style: none;
   flex-direction: column;
-  text-align: left;
-  margin-left: 60px;
+  display: flex;
+  padding: 0;
 `;
 
-export const Row = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
-  grid-gap: 20px;
-
-  @media (max-width: 1000px) {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  }
-`;
-
-export const FooterLink = styled.a`
-  color: #fff;
-  margin-bottom: 20px;
-  font-size: 18px;
-  text-decoration: none;
-
+const ListItem = styled.li`
+  width: 100%;
+  color: black;
+  margin-bottom: 10px;
   &:hover {
-    color: #bf382c;
-    transition: 200ms ease-in;
+    color: teal;
   }
 `;
 
-export const Heading = styled.p`
-  font-size: 24px;
-  color: #fff;
-  margin-bottom: 40px;
-  font-weight: bold;
+const Right = styled.div`
+  flex: 1;
+  padding: 20px;
+`;
+
+const ContactItem = styled.div`
+  margin-bottom: 20px;
+  display: flex;
+  margin-left: 130px;
+  align-items: center;
+`;
+
+const Payment = styled.img`
+  width: 50%;
+`;
+
+const Center = styled.div`
+  flex: 1;
+  padding: 20px;
 `;
 
 function Footer() {
   return (
-    <Box>
-      <Container>
-        <Row>
-          <Column>
-            <Heading>About Us</Heading>
-            {/* <img src='/logogif.gif' alt="logo" /> */}
-            <h5
-              style={{
-                color: "white",
-                fontFamily: "sans-serif",
-              }}
+    <div>
+      <hr/>
+    <Container>
+
+      <Left>
+        <Logo>SNOOPY SHOP</Logo>
+        <Desc>
+          {" "}
+          is an online ecommerce platform. <br /> We have the best prices in
+          market.
+        </Desc>
+        <SocialContainer>
+          <SocialIcon color="#385999">
+            <a
+              style={{ color: "white" }}
+              href="https://www.facebook.com/salhi.asma.526"
             >
-              SNOOPY SHOP is an online ecommerce platform. <br /> We have the
-              best prices in market.
-            </h5>
-          </Column>
-          <Column>
-            <Heading>Services</Heading>
-            <FooterLink href="/">Home</FooterLink>
-            <FooterLink href="/cart">Cart</FooterLink>
-            <FooterLink href="/orders">Orders</FooterLink>
-          </Column>
-          <Column>
-            <Heading>Contact Us</Heading>
-            <FooterLink href="#">99 999 999</FooterLink>
-            <FooterLink href="#">71 100 100</FooterLink>
-            <FooterLink href="#">snoopyshop@gmail.com</FooterLink>
-          </Column>
-          <Column>
-            <Heading>Social Media</Heading>
-            <FooterLink href="https://www.facebook.com/salhi.asma.526">
-              <i className="fab fa-facebook-f">
-                <span style={{ marginLeft: "10px" }}>Facebook</span>
-              </i>
-            </FooterLink>
-            <FooterLink href="https://www.instagram.com/hasnichayma/">
-              <i className="fab fa-instagram">
-                <span style={{ marginLeft: "10px" }}>Instagram</span>
-              </i>
-            </FooterLink>
-            <FooterLink href="https://github.com/chaymahasni">
-              <i className="fab fa-github">
-                <span style={{ marginLeft: "10px" }}>Github</span>
-              </i>
-            </FooterLink>
-          </Column>
-        </Row>
-      </Container>
-      <h1
-        style={{
-          color: "#BF382C",
-          textAlign: "center",
-          fontSize: "15px",
-          marginTop: "25px",
-        }}
-      >
-        © 2022 All rights are reserved
-      </h1>
-    </Box>
+              <i className="fab fa-facebook-f" />
+            </a>
+          </SocialIcon>
+          <SocialIcon color="#E4405F">
+            <a
+              style={{ color: "white" }}
+              href="https://www.instagram.com/hasnichayma/"
+            >
+              <i className="fab fa-instagram" />
+            </a>
+          </SocialIcon>
+          <SocialIcon color="black">
+            <a style={{ color: "white" }} href="https://github.com/chaymahasni">
+              <i className="fab fa-github" />
+            </a>
+          </SocialIcon>
+        </SocialContainer>
+      </Left>
+      <Center>
+        <Title>Useful Links</Title>
+        <List>
+          <a href="/" style={{ textDecoration: "none" }}>
+            {" "}
+            <ListItem>Home</ListItem>
+          </a>
+          <a href="/register" style={{ textDecoration: "none" }}>
+            {" "}
+            <ListItem>Register</ListItem>
+          </a>
+          <a href="/cart" style={{ textDecoration: "none" }}>
+            {" "}
+            <ListItem>Cart</ListItem>
+          </a>
+          <a href="/ordes" style={{ textDecoration: "none" }}>
+            {" "}
+            <ListItem>Orders</ListItem>
+          </a>
+          <a href="/about" style={{ textDecoration: "none" }}>
+            {" "}
+            <ListItem>About us</ListItem>
+          </a>
+        </List>
+      </Center>
+
+      <Right>
+        <Title>Contact</Title>
+
+        <ContactItem>
+          <i class="fa fa-phone"></i> +216 99 999 999
+        </ContactItem>
+
+        <ContactItem>
+          <i class="fa fa-envelope"></i>snoopyshop@gmail.com
+        </ContactItem>
+        {/* <ContactItem>
+          <i class="fa-solid fa-location-pin"></i>622 Beja Nord, Beja
+        </ContactItem> */}
+
+        <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
+      </Right>
+    </Container></div>
   );
 }
 

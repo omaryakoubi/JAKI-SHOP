@@ -58,7 +58,7 @@ function Review({ product }) {
         color={"black"}
         char={"☆"}
         isHalf={true}
-        activeColor="#BF382C"
+        activeColor="#ffd700"
         onChange={(e) => {
           setrating(e);
         }}
@@ -76,7 +76,7 @@ function Review({ product }) {
         className="btn mt-3 ml-1"
         style={{
           color: "white",
-          backgroundColor: "#BF382C",
+          backgroundColor: "teal",
           width: "200px",
         }}
         onClick={sendreview}
@@ -94,7 +94,7 @@ function Review({ product }) {
               <ReactStars
                 count={review.rating}
                 size={28}
-                color={"#BF382C"}
+                color={"teal"}
                 char={"☆"}
                 isHalf={true}
                 readonly

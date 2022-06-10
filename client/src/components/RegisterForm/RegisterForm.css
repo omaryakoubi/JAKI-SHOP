@@ -1,26 +1,27 @@
-input{
-    box-shadow: none ;
-    margin-top: 10px ;
-    border-color: 1px solid black ;
-    
+/* .registerform {
+  background: url("https://images.unsplash.com/photo-1579546928686-286c9fbde1ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y29sb3IlMjBiYWNrZ3JvdW5kfGVufDB8fDB8fA%3D%3D&w=1000&q=80");
+  height: 80vh;
+  margin-top: 5%;
 }
 
-.frm{
-    margin-top: 140px;
+input {
+  box-shadow: none;
+  margin-top: 10px;
+  border-color: 1px solid black;
 }
+
 
 .btn {
-    display: flex;
-    justify-content: center;
-    
-    text-align: center;
-    margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 10px;
 }
 
-h4{
-    font-size: 24px;
-    font-family: serif;
+h4 {
+  font-size: 24px;
+  font-family: serif;
 }
-.mb-20{
-    margin-bottom: 20px !important;
-}
+.mb-20 {
+  margin-bottom: 20px !important;
+} */

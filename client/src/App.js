@@ -6,13 +6,13 @@ import RegisterForm from "./components/RegisterForm/RegisterForm";
 import LoginForm from "./components/LoginForm/LoginForm";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
-import Category from "./components/Category/Category";
+import Category from "./components/Catt/Category";
 import Cart from "./components/Cart/Cart";
 import Orders from "./components/Orders/Orders";
 import Footer from "./components/Footer/Footer";
 import Admin from "./components/Admin/Admin";
 import Error from "./components/Error/Error";
-
+import Annoucement from "./components/Annoucement/Annoucement";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
@@ -25,8 +25,9 @@ function App() {
       autoDismissTimeout={4000}
     >
       <div className="App">
+        <Annoucement/>
         <Navbar/>
-        <Category/>
+        {/* <Category/> */}
         <BrowserRouter>
           <Route path="/" component={Home} exact />
           <Route path="/product/:id" component={ProductsDescription} />

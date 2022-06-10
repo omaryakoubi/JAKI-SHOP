@@ -12,8 +12,8 @@ function EditProduct({ match }) {
 
   const { product, loading, error } = productstate;
 
-  const updateproductstate = useSelector( state => state.updateProductReducer)
-  const {success , updateerror , updateloading} = updateproductstate
+  const updateproductstate = useSelector((state) => state.updateProductReducer);
+  const { success, updateerror, updateloading } = updateproductstate;
 
   const [name, setname] = useState("");
   const [price, setprice] = useState();
@@ -59,11 +59,11 @@ function EditProduct({ match }) {
   return (
     <div>
       <h2 className="usertitle">Update Product</h2>
-        {loading && (<Loader />)}
-        {updateloading && (<Loader />)}
-        {updateerror && (<Error error="Something wrong!" />)}
-        {error && (<Error error="Something wrong!" />)}
-        {success && (<Success success="Product Updated Seccessfully" />)}
+      {loading && <Loader />}
+      {updateloading && <Loader />}
+      {updateerror && <Error error="Something wrong!" />}
+      {error && <Error error="Something wrong!" />}
+      {success && <Success success="Product Updated Seccessfully" />}
 
       {product && (
         <div className="row">
@@ -145,7 +145,11 @@ function EditProduct({ match }) {
               <button
                 className="btn mt-2"
                 type="submit"
-                style={{ color: "white", backgroundColor: "#BF382C" ,width:"200px"}}
+                style={{
+                  color: "white",
+                  backgroundColor: "teal",
+                  width: "200px",
+                }}
               >
                 Update Product
               </button>

@@ -17,11 +17,12 @@ const Category = () => {
   const [searchkey, setsearchkey] = useState("");
 
   const filterByCategoryName = (e) => {
-    dispatch(filtreProducts(searchkey, e.target.innerHTML));
+    dispatch(filtreProducts(searchkey, e.target.value));
   };
 
   return (
-    <div className="divCat"
+    <div
+      className="divCat"
       style={{
         display: "flex",
         justifyContent: "space-evenly",
