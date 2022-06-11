@@ -12,12 +12,12 @@ export const categories = [
   {
     id: 1,
     img: "https://cdn.wccftech.com/wp-content/uploads/2021/03/iPhone-13-Pro-matte-black-1.jpg",
-    title: "MOBILES",
+    title: "Mobiles",
   },
   {
     id: 2,
     img: "https://images.frandroid.com/wp-content/uploads/2021/11/apple-macbook-pro-14-m1-pro-test-frandroid-4-scaled.jpg",
-    title: "LAPTOPS",
+    title: "Laptops",
   },
   {
     id: 3,

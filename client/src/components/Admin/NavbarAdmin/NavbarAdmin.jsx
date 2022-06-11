@@ -1,10 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { logoutUser } from "../../../actions/userAction";
+import MenuIcon from "@mui/icons-material/Menu";
+import SmartphoneIcon from "@mui/icons-material/Smartphone";
+import LaptopIcon from "@mui/icons-material/Laptop";
+import GamesIcon from "@mui/icons-material/Games";
+import SpokeIcon from "@mui/icons-material/Spoke";
+import StarsIcon from "@mui/icons-material/Stars";
+
+
+
 
 function Navbar() {
   const cartreducer = useSelector((state) => state.cartReducer);
 
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  const dispatch = useDispatch();
 
   return (
     <div>
@@ -84,7 +95,12 @@ function Navbar() {
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <div class="dropdown-divider"></div>
-                  <li className="dropdown-item" onClick={() => {}}>
+                  <li
+                    className="dropdown-item"
+                    onClick={() => {
+                      dispatch(logoutUser());
+                    }}
+                  >
                     Logout
                   </li>
                 </div>

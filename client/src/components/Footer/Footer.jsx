@@ -81,7 +81,7 @@ function Footer() {
     <Container>
 
       <Left>
-        <Logo>SNOOPY SHOP</Logo>
+        <Logo>MY SHOP</Logo>
         <Desc>
           {" "}
           is an online ecommerce platform. <br /> We have the best prices in
@@ -145,7 +145,7 @@ function Footer() {
         </ContactItem>
 
         <ContactItem>
-          <i class="fa fa-envelope"></i>snoopyshop@gmail.com
+          <i class="fa fa-envelope"></i>my-shop@gmail.com
         </ContactItem>
         {/* <ContactItem>
           <i class="fa-solid fa-location-pin"></i>622 Beja Nord, Beja

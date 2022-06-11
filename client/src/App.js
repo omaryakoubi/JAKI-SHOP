@@ -17,6 +17,11 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import About from "./components/About/About";
 
+import ProductCategoryList from "./components/ProductCategoryList/ProductCategoryList";
+
+import { Link } from "react-router-dom";
+import Contact from "./components/Contact/Contact";
+
 function App() {
   const user = JSON.parse(localStorage.getItem("currentUser"));
   return (
@@ -27,8 +32,7 @@ function App() {
     >
       <div className="App">
         {/* <Category/> */}
-         
-        
+
         {/* <Annoucement/>
         <Navbar/> */}
 
@@ -39,7 +43,13 @@ function App() {
           <Route path="/register" component={RegisterForm} />
           <Route path="/login" component={LoginForm} />
           <Route path="/orders" component={Orders} />
-          <Route path="/about" component={About}/>
+          <Route path="/about" component={About} />
+          <Route path="/contact" component={Contact} />
+          <Route
+            exact
+            path="/product-list/:category"
+            render={() => <ProductCategoryList />}
+          />
           <Route>
             {user ? (
               user.isAdmin ? (
@@ -53,8 +63,6 @@ function App() {
           </Route>
           {/* <Route path="/test" component={Category} /> */}
         </BrowserRouter>
-
-       
       </div>
     </ToastProvider>
   );

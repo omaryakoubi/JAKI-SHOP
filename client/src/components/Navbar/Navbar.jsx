@@ -5,13 +5,24 @@ import { filtreProducts } from "../../actions/productAction";
 import { useToasts } from "react-toast-notifications";
 import "./Navbar.css";
 
+import { useHistory } from "react-router-dom";
+
 function Navbar() {
+  const history = useHistory();
   const cartreducer = useSelector((state) => state.cartReducer);
   const { cartItems } = cartreducer;
   const [searchkey, setsearchkey] = useState("");
   const [category, setcategory] = useState("all");
 
   const { addToast } = useToasts();
+
+  const [categoryList, setCategoryList] = useState([
+    "Mobiles",
+    "Laptops",
+    "Accessories",
+    "Fashion",
+    "Games",
+  ]);
 
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
@@ -21,9 +32,6 @@ function Navbar() {
   }, [searchkey]);
 
   const filterByCategoryName = (e) => {
-    addToast("Your category is shown ! drop down to see ", {
-      appearance: "success",
-    });
     dispatch(filtreProducts(searchkey, e.target.innerHTML));
   };
 
@@ -31,7 +39,7 @@ function Navbar() {
     <div>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/">
-          SNOOPYSHOP
+          MY SHOP
         </a>
         <button
           class="navbar-toggler"
@@ -57,6 +65,11 @@ function Navbar() {
                 About us
               </a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact">
+               Contact
+              </a>
+            </li>
             <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle"
@@ -74,25 +87,17 @@ function Navbar() {
                 aria-labelledby="navbarDropdown"
                 style={{ cursor: "pointer" }}
               >
-                <a class="dropdown-item" onClick={filterByCategoryName}>
-                  Mobiles
-                </a>
-                <a class="dropdown-item" onClick={filterByCategoryName}>
-                  Laptops
-                </a>
-                <a class="dropdown-item" onClick={filterByCategoryName}>
-                  Accessories
-                </a>
-                <a class="dropdown-item" onClick={filterByCategoryName}>
-                  Fashion
-                </a>
-                <a class="dropdown-item" onClick={filterByCategoryName}>
-                  Games
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" onClick={filterByCategoryName}>
-                  All Categories
-                </a>
+                {categoryList.map((category) => {
+                  return (
+                    <a
+                      onClick={() => history.push(`/product-list/${category}`)}
+                    >
+                      <a class="dropdown-item" onClick={filterByCategoryName}>
+                        {category}
+                      </a>
+                    </a>
+                  );
+                })}
               </div>
             </li>
             <li class="nav-item">
