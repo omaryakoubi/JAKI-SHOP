@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteUser, getAllUsers } from "../../actions/userAction";
 import Loader from "../Loader/Loader";
 import Error from "../Error/Error";
+import { useToasts } from "react-toast-notifications";
 import "./UsersList.css";
 
 function UsersList() {
@@ -11,6 +12,7 @@ function UsersList() {
   const { users, loading, error } = getallusersstate;
 
   const dispatch = useDispatch();
+  const { addToast } = useToasts();
 
   useEffect(() => {
     dispatch(getAllUsers());
@@ -43,9 +45,12 @@ function UsersList() {
                   <td className="delete">
                     <i
                       class="far fa-trash-alt "
-                      style={{ color: "teal" }}
+                      style={{ color: "red" }}
                       onClick={() => {
                         dispatch(deleteUser(user._id));
+                        addToast("User deleted succesfully ", {
+                          appearance: "success",
+                        });
                       }}
                     ></i>
                   </td>

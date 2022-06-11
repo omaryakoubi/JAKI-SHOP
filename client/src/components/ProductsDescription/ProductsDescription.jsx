@@ -7,6 +7,10 @@ import Error from "../Error/Error";
 import Loader from "../Loader/Loader";
 import Review from "../Review/Review";
 import "./ProductsDescription.css";
+import Announcement from "../Annoucement/Annoucement";
+import Navbar from "../Navbar/Navbar";
+import Footer from "../Footer/Footer";
+
 
 function ProductsDescription({ match }) {
   const { addToast } = useToasts();
@@ -32,6 +36,8 @@ function ProductsDescription({ match }) {
 
   return (
     <div>
+       <Announcement/>
+        <Navbar/>
       {loading ? (
         <Loader />
       ) : error ? (
@@ -86,6 +92,9 @@ function ProductsDescription({ match }) {
           </div>
         </div>
       )}
+       <footer>
+          <Footer />
+        </footer>
     </div>
   );
 }

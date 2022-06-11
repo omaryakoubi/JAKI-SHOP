@@ -4,8 +4,11 @@ import Loader from "../Loader/Loader";
 import Error from "../Error/Error";
 import { getOrdersByUserId } from "../../actions/orderAction";
 import { getAllProducts } from "../../actions/productAction";
-
 import "./Orders.css";
+import Navbar from "../Navbar/Navbar";
+import Announcement from "../Annoucement/Annoucement";
+import Footer from "../Footer/Footer";
+
 
 function Orders() {
   const orderstate = useSelector((state) => state.getOrdersByUserIdReducer);
@@ -21,7 +24,9 @@ function Orders() {
     }
   }, []);
 
-  return (
+  return (<div> 
+    <Announcement/>
+  <Navbar/>
     <div className="listor">
       <div className="row justify-content-left mt-5">
         <div className="col-md-8">
@@ -68,6 +73,10 @@ function Orders() {
           </table>
         </div>
       </div>
+    </div>
+    <footer>
+          <Footer />
+        </footer>
     </div>
   );
 }

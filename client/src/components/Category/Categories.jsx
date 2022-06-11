@@ -10,11 +10,6 @@ justify-content:space-between;
 `
 
 
-
-
-
-
-
 const Categories = () => {
   
   return (<div>

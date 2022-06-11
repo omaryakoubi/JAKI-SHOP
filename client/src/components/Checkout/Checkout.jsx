@@ -56,6 +56,7 @@ function Checkout({ amount }) {
               color: "teal",
               borderColor: "teal",
               backgroundColor: "white",
+              marginTop:"10px",
               width: "200px",
             }}
             onClick={()=>window.location.href = "/"}

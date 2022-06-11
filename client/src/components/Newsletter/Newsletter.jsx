@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -41,13 +41,31 @@ const Button = styled.button`
 `;
 
 const Newsletter = () => {
+  const [message, setMessage] = useState("");
+
+  const handleChange = (event) => {
+    setMessage(event.target.value);
+  };
+
+  const handleClick = (event) => {
+    event.preventDefault();
+
+    if (message.trim().length !== 0) {
+      alert(`Timely updates will be sent to your email : ${message}`);
+      window.location.reload()
+    } else {
+      alert('Please type your email')
+    }
+  };
   return (
     <Container>
       <Title>Newsletter</Title>
       <Description>GET timely updates from your favorite products.</Description>
       <InputContainer>
-        <Input placeholder="type your email for news" />
-        <Button>Send</Button>
+        <Input placeholder="type your email for news" type="email" onChange={handleChange} />
+        <Button  onClick={handleClick} >
+          Send
+        </Button>
       </InputContainer>
     </Container>
   );

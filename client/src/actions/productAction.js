@@ -85,7 +85,6 @@ export const deleteProduct = (productid) => (dispatch) => {
     .post("/api/products/deleteproduct", { productid })
     .then((res) => {
       dispatch({ type: "DELETE_PRODUCT_SUCCESS", payload: res.data });
-      alert("Product Deleted Successfully");
       window.location.reload();
     })
     .catch((err) => {

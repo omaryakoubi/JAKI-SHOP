@@ -68,9 +68,9 @@ function AddNewProduct() {
             <input
               type="text"
               className="form-control mb-2 mr-sm-2"
-              placeholder="Unit ..."
+              placeholder="TND"
               required
-              value={unit}
+              value="TND"
               onChange={(e) => {
                 setunit(e.target.value);
               }}
@@ -132,7 +132,7 @@ function AddNewProduct() {
               type="submit"
               style={{
                 color: "white",
-                backgroundColor: "teal",
+                backgroundColor: "#343a40",
                 width: "200px",
               }}
             >

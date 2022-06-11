@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../Loader/Loader";
 import Error from "../Error/Error";
+import { useToasts } from "react-toast-notifications";
 import { deleteProduct, getAllProducts } from "../../actions/productAction";
 import { Link } from "react-router-dom";
 
@@ -9,6 +10,8 @@ function ProductsList() {
   const getallproductssstate = useSelector(
     (state) => state.getAllProductsReducer
   );
+  const { addToast } = useToasts();
+
 
   const { products, loading, error } = getallproductssstate;
 
@@ -51,6 +54,9 @@ function ProductsList() {
                       style={{ color: "teal" }}
                       onClick={() => {
                         dispatch(deleteProduct(product._id));
+                        addToast("Product deleted succesfully ", {
+                          appearance: "success",
+                        });
                       }}
                     ></i>{" "}
                     <Link to={`/admin/editproduct/${product._id}`}>

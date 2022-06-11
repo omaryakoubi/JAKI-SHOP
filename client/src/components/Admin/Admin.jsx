@@ -7,40 +7,18 @@ import OrdersList from "../OrdersList/OrdersList";
 import "./Admin.css";
 import EditProduct from "../EditProduct/EditProduct";
 import { useHistory } from "react-router-dom";
-
+import NavbarAdmin from "./NavbarAdmin/NavbarAdmin";
+import FooterAdmin from "./FooterAdmin/FooterAdmin";
+import HomeAdmin from "./HomeAdmin/HomeAdmin";
 function Admin() {
   return (
     <div>
+      <NavbarAdmin />
+
       <div className="row">
         <div className="col-md-10">
-          <ul className="admin">
-            <li>
-              <Link to="/admin/userslist" style={{ color: "white" }}>
-                {" "}
-                Users List{" "}
-              </Link>
-            </li>
-            <li>
-              <Link to="/admin/productslist" style={{ color: "white" }}>
-                {" "}
-                Products List{" "}
-              </Link>
-            </li>
-            <li>
-              <Link to="/admin/addnewproduct" style={{ color: "white" }}>
-                {" "}
-                Add New Product{" "}
-              </Link>
-            </li>
-            <li>
-              <Link to="/admin/orderslist" style={{ color: "white" }}>
-                {" "}
-                Orders List{" "}
-              </Link>
-            </li>
-          </ul>
-
           <Switch>
+            <Route exact path="/admin" component={HomeAdmin} />
             <Route path="/admin/userslist" component={UsersList} />
             <Route path="/admin/productslist" component={ProductsList} />
             <Route path="/admin/addnewproduct" component={AddNewProduct} />
@@ -52,6 +30,7 @@ function Admin() {
           </Switch>
         </div>
       </div>
+      <FooterAdmin />
     </div>
   );
 }

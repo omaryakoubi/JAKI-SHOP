@@ -7,10 +7,13 @@ import "./Home.css";
 import { getAllProducts } from "../../actions/productAction";
 import Loader from "../Loader/Loader";
 import Error from "../Error/Error";
-import Carrousel from "../Caroussel/Caroussel";
 import Slider from "../Slider/Slider";
 import Newsletter from "../Newsletter/Newsletter";
 import Categories from "../Category/Categories";
+import Navbar from "../Navbar/Navbar";
+import Announcement from "../Annoucement/Annoucement";
+import Footer from "../Footer/Footer";
+
 
 function Home() {
   const getallproductsstate = useSelector(
@@ -25,9 +28,11 @@ function Home() {
 
   return (
     <div>
+      <Announcement/>
+        <Navbar/>
       <Slider />
       <Categories />
-      {/* <Carrousel products={products}/> */}
+      
       <hr />
       <div className="homeContainer">
         {loading ? (
@@ -42,6 +47,8 @@ function Home() {
                 alignItems: "center",
                 justifyContent: "center",
                 flexWrap: "wrap",
+                
+
               }}
             >
               {products.map((product) => {
@@ -56,6 +63,9 @@ function Home() {
         )}
       </div>
       <Newsletter />
+      <footer>
+          <Footer />
+        </footer>
     </div>
   );
 }

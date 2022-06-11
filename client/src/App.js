@@ -15,6 +15,7 @@ import Error from "./components/Error/Error";
 import Annoucement from "./components/Annoucement/Annoucement";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import About from "./components/About/About";
 
 function App() {
   const user = JSON.parse(localStorage.getItem("currentUser"));
@@ -25,9 +26,12 @@ function App() {
       autoDismissTimeout={4000}
     >
       <div className="App">
-        <Annoucement/>
-        <Navbar/>
         {/* <Category/> */}
+         
+        
+        {/* <Annoucement/>
+        <Navbar/> */}
+
         <BrowserRouter>
           <Route path="/" component={Home} exact />
           <Route path="/product/:id" component={ProductsDescription} />
@@ -35,6 +39,7 @@ function App() {
           <Route path="/register" component={RegisterForm} />
           <Route path="/login" component={LoginForm} />
           <Route path="/orders" component={Orders} />
+          <Route path="/about" component={About}/>
           <Route>
             {user ? (
               user.isAdmin ? (
@@ -46,12 +51,10 @@ function App() {
               ) : null
             ) : null}
           </Route>
-          <Route path="/test" component={Category} />
+          {/* <Route path="/test" component={Category} /> */}
         </BrowserRouter>
 
-        <footer>
-          <Footer />
-        </footer>
+       
       </div>
     </ToastProvider>
   );

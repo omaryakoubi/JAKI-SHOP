@@ -1,8 +1,12 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, deleteFromCart } from "../../actions/cartAction";
+import Announcement from "../Annoucement/Annoucement";
 import Checkout from "../Checkout/Checkout";
+import Footer from "../Footer/Footer";
+import Navbar from "../Navbar/Navbar";
 import "./Cart.css";
+
 
 function Cart() {
   const cartreducerstate = useSelector((state) => state.cartReducer);
@@ -16,6 +20,8 @@ function Cart() {
 
   return (
     <div>
+      <Announcement />
+      <Navbar />
       <div className="row">
         <div className="col-md-8  text-center mt-5">
           <h2 className="title">MY CART</h2>
@@ -36,7 +42,12 @@ function Cart() {
               {cartItems.map((item) => {
                 return (
                   <tr>
-                     <td><img src={item.imgurl} style={{height:"80px",width:"80px"}}/></td>
+                    <td>
+                      <img
+                        src={item.imgurl}
+                        style={{ height: "80px", width: "80px" }}
+                      />
+                    </td>
                     <td>{item.name}</td>
                     <td className="unit">
                       {" "}
@@ -82,6 +93,9 @@ function Cart() {
           <hr />
         </div>
       </div>
+      <footer>
+          <Footer />
+        </footer>
     </div>
   );
 }

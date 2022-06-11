@@ -7,7 +7,7 @@ export const registerNewUser = (user) => (dispatch) => {
     .post("/api/users/register", user)
     .then((res) => {
       dispatch({ type: "USER_REGISTER_SUCCESS" });
-      window.location.href="/login"
+      window.location.href = "/login";
       console.log(res);
     })
     .catch((err) => {
@@ -27,8 +27,7 @@ export const loginUser = (user) => (dispatch) => {
 
       window.location.href = "/";
 
-      if (user.email == ('chaimaadmin@gmail.com'))
-      {
+      if (user.email == "admin@gmail.com") {
         window.location.href = "/admin";
       }
     })
@@ -64,14 +63,12 @@ export const deleteUser = (userid) => (dispatch) => {
   dispatch({ type: "DELETE_USER_REQUEST" });
 
   axios
-    .post("/api/users/deleteuser" , {userid})
+    .post("/api/users/deleteuser", { userid })
     .then((res) => {
       dispatch({ type: "DELETE_USER_SUCCESS", payload: res.data });
-      alert('User Deleted Successfully')
-      window.location.reload()
+      window.location.reload();
     })
     .catch((err) => {
       dispatch({ type: "DELETE_USER_FAILED", payload: err });
-    }); 
+    });
 };
-

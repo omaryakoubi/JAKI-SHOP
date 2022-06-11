@@ -1,6 +1,10 @@
 .listor {
-  background: url("https://img.freepik.com/free-photo/people-is-using-tablet-order-add-products-cart-with-product-shelf-background-that-represent-shopping-online-idea_29489-177.jpg?w=2000")
-    no-repeat center;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("https://img.freepik.com/free-photo/people-is-using-tablet-order-add-products-cart-with-product-shelf-background-that-represent-shopping-online-idea_29489-177.jpg?w=2000")
+      center;
   width: 100% !important;
   justify-content: left !important;
   height: 100vh;

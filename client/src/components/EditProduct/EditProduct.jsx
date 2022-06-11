@@ -147,7 +147,7 @@ function EditProduct({ match }) {
                 type="submit"
                 style={{
                   color: "white",
-                  backgroundColor: "teal",
+                  backgroundColor: "#343a40",
                   width: "200px",
                 }}
               >

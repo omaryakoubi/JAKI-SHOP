@@ -3,8 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../actions/userAction";
 import Error from "../Error/Error";
 import Loader from "../Loader/Loader";
-import "./LoginForm.css";
 import styled from "styled-components";
+import Navbar from "../Navbar/Navbar";
+import Announcement from "../Annoucement/Annoucement";
+import Footer from "../Footer/Footer";
+
 
 const Container = styled.div`
   width: 100vw;
@@ -70,6 +73,7 @@ function LoginForm() {
   const { loading, error } = loginreducer;
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
+  const [isAdmin, setIsAdmin] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -79,7 +83,7 @@ function LoginForm() {
       email: email,
       password: password,
     };
-
+    console.log(user);
     dispatch(loginUser(user));
   };
 
@@ -91,6 +95,8 @@ function LoginForm() {
 
   return (
     <div>
+      <Announcement/>
+      <Navbar/>
       <Container>
         <Wrapper>
           <Title>SIGN IN</Title>
@@ -122,57 +128,9 @@ function LoginForm() {
           </Form>
         </Wrapper>
       </Container>
-   
-      {/* <div className="row justify-content-center">
-        <div className="zoomoutcard col-md-4 card p-5 shadow p-3 mb-5 bg-white rounded">
-          <div className="div">
-            <h4 className="text-center ">LOGIN</h4>
-
-            {error && <Error error="Invalid Login Informations!" />}
-            {loading && <Loader />}
-
-            <form onSubmit={login}>
-              <input
-                type="email"
-                placeholder="Email..."
-                className="form-control mb-20"
-                required
-                value={email}
-                onChange={(e) => {
-                  setemail(e.target.value);
-                }}
-              />
-              <input
-                type="password"
-                placeholder="Password..."
-                className="form-control mb-20"
-                required
-                value={password}
-                onChange={(e) => {
-                  setpassword(e.target.value);
-                }}
-              />
-              <div className="bt mt-2">
-                <button
-                  type="submit"
-                  className="btn"
-                  style={{
-                    color: "white",
-                    backgroundColor: "teal",
-                    width: "200px",
-                  }}
-                >
-                  LOGIN
-                </button>
-              </div>
-            </form>
-            <br />
-            <a href="/register" style={{ color: "#253C59" }}>
-              <h5>No account? Create one</h5>
-            </a>
-          </div>
-        </div>
-      </div> */}
+      <footer>
+          <Footer />
+        </footer>
     </div>
   );
 }
