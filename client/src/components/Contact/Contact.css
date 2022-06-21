@@ -87,7 +87,12 @@ form {
     width: 500px;
   }
   .contwal {
-    background: white;
+    background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpvdqhTz_Nica9VBe-o4JgfOfXNT_WrI57Sw&usqp=CAU")
+      center;
     
   }
   

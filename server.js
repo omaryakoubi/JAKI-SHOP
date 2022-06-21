@@ -13,28 +13,21 @@ app.use("/api/products/", productsRoute);
 app.use("/api/users/", userRoute);
 app.use("/api/orders/", orderRoute);
 
-if (process.env.NODE_ENV === "production") {
-  app.use("/", express.static("/client/build"));
 
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "/client/build/index.html"));
-  });
-}
 
-const port = process.env.PORT || 5000;
+const port = 5000;
 const uri =
   "mongodb+srv://chayma:chayma@cluster0.7gwdc.mongodb.net/?retryWrites=true&w=majority";
 
 app.get("/", function (req, res) {
   res.send("This is from Back-end");
 });
-
+//init server
 app.listen(port, () => {
-  console.log(`APP listening at ${port}`);
+  console.log(`SERVER IS RUNNING ON PORT ${port}`);
 });
 
 // Connecting to DB
-
 mongoose.connect(
   uri,
   { useNewUrlParser: true, useUnifiedTopology: true },

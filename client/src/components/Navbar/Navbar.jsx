@@ -25,6 +25,7 @@ function Navbar() {
   ]);
 
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  //console.log(currentUser.user.username)
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -117,7 +118,7 @@ function Navbar() {
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  {currentUser.username.toUpperCase()}
+                  {/*{currentUser.user.username.toUpperCase()}*/}
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a className="dropdown-item" href="/orders">

@@ -23,7 +23,6 @@ function ProductCategoryList() {
   useEffect(() => {
     dispatch(getAllProducts());
 
-   
   }, [category]);
 
   const filtredproducts =
@@ -31,7 +30,9 @@ function ProductCategoryList() {
     products.filter((product) => {
       return product.category.toLowerCase().includes(category.toLowerCase());
     });
- 
+
+   
+
   return (
     <div>
       <Announcement/>

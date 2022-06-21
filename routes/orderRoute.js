@@ -51,7 +51,7 @@ router.post("/placeorder", async (req, res) => {
       }
     });
   } else {
-    return res.status(400).json({ message: "Paiement Failed!" });
+    return res.status(400).json({ message: "Payment Failed!" });
   }
 
 

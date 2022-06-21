@@ -24,7 +24,7 @@ export const loginUser = (user) => (dispatch) => {
       dispatch({ type: "USER_LOGIN_SUCCESS" });
 
       localStorage.setItem("currentUser", JSON.stringify(res.data));
-
+      localStorage.setItem("token",res.data.token)
       window.location.href = "/";
 
       if (user.email == "admin@gmail.com") {

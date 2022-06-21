@@ -1,14 +1,16 @@
 import axios from "axios";
 
+
+
 export const getAllProducts = () => (dispatch) => {
   dispatch({ type: "GET_PRODUCTS_REQUEST" });
-
+  
   axios
     .get("/api/products/allproducts")
     .then((res) => {
-      console.log(res);
-
+     
       dispatch({ type: "GET_PRODUCTS_SUCCESS", payload: res.data });
+      console.log(res.data)
     })
     .catch((err) => {
       console.log(err);
@@ -100,6 +102,7 @@ export const addProduct = (product) => (dispatch) => {
     .then((res) => {
       console.log(res);
       dispatch({ type: "ADD_PRODUCT_SUCCESS" });
+      window.location.reload()
     })
     .catch((err) => {
       dispatch({ type: "ADD_PRODUCT_FAILED", payload: err });

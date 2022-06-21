@@ -2,12 +2,14 @@ const mongoose = require("mongoose");
 const express = require("express");
 const router = express.Router();
 const User = require("../models/userModel");
+//const jwt = require("jsonwebtoken")
 const { response } = require("express");
+require("dotenv").config()
 
 router.post("/register", (req, res) => {
   User.find({ email: req.body.email }, (err, docs) => {
     if (docs.length > 0) {
-      return res.status(400).json({ message: "Something wrong !" });
+      return res.status(400).json({ message: "User already exists !!!!" });
     } else {
       const newuser = new User({
         username: req.body.username,
@@ -18,7 +20,7 @@ router.post("/register", (req, res) => {
         if (!err) {
           res.send("User Registration Success!");
         } else {
-          return res.status(400).json({ message: "Something wrong !" });
+          return res.status(400).json({ message: err });
         }
       });
     }
@@ -40,6 +42,8 @@ router.post("/login", (req, res) => {
           email: docs[0].email,
           isAdmin: docs[0].isAdmin,
         };
+        // const token = jwt.sign(user, process.env.JWT)
+        // console.log(token)
         res.send(user);
       } else {
         return res.status(400).json({ message: "Invalid user informations!" });
@@ -68,23 +72,6 @@ router.post("/deleteuser", (req, res) => {
   });
 });
 
-router.put("/createAdmin/:id", async (req, res) => {
-  try {
-    const { id } = req.params;
-    console.log(id);
-    const user = await User.findById(id);
-    if (user) {
-      console.log(user);
-      await User.findByIdAndUpdate(id, { isAdmin: true });
-      return res
-        .status(200)
-        .json({ status: true, message: "user has been prometed to admin" });
-    } else {
-      return res.status(404).json({ status: false, message: "user not found" });
-    }
-  } catch (err) {
-    res.status(500).json({ status: false, message: err });
-  }
-});
+
 
 module.exports = router;

@@ -100,4 +100,10 @@ router.post("/updateproduct", (req, res) => {
   );
 });
 
+router.get("/product/:id", async (req, res) => {
+  const {id} = req.params
+  const product = await Book.findById(id)
+  return res.status(200).json({status: true, message:"product", data:product})
+})
+
 module.exports = router;

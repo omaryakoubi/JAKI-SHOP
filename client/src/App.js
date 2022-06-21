@@ -1,12 +1,11 @@
 import { BrowserRouter, Redirect, Route } from "react-router-dom";
 import { ToastProvider } from "react-toast-notifications";
-
+import { useState } from "react";
 import ProductsDescription from "./components/ProductsDescription/ProductsDescription";
 import RegisterForm from "./components/RegisterForm/RegisterForm";
 import LoginForm from "./components/LoginForm/LoginForm";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
-import Category from "./components/Catt/Category";
 import Cart from "./components/Cart/Cart";
 import Orders from "./components/Orders/Orders";
 import Footer from "./components/Footer/Footer";
@@ -20,11 +19,14 @@ import About from "./components/About/About";
 import ProductCategoryList from "./components/ProductCategoryList/ProductCategoryList";
 
 import { Link } from "react-router-dom";
-import Contact from "./components/Contact/Contact";
+import Contact from "./components/Contact/Contact"
+import axios from "axios"
+import { useEffect } from "react";
 
 function App() {
   const user = JSON.parse(localStorage.getItem("currentUser"));
-  return (
+
+  return ( 
     <ToastProvider
       placement="top-center"
       autoDismiss="true"
@@ -61,7 +63,6 @@ function App() {
               ) : null
             ) : null}
           </Route>
-          {/* <Route path="/test" component={Category} /> */}
         </BrowserRouter>
       </div>
     </ToastProvider>
