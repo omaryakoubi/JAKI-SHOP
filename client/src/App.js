@@ -19,14 +19,14 @@ import About from "./components/About/About";
 import ProductCategoryList from "./components/ProductCategoryList/ProductCategoryList";
 
 import { Link } from "react-router-dom";
-import Contact from "./components/Contact/Contact"
-import axios from "axios"
+import Contact from "./components/Contact/Contact";
+import axios from "axios";
 import { useEffect } from "react";
 
 function App() {
   const user = JSON.parse(localStorage.getItem("currentUser"));
 
-  return ( 
+  return (
     <ToastProvider
       placement="top-center"
       autoDismiss="true"
@@ -40,7 +40,10 @@ function App() {
 
         <BrowserRouter>
           <Route path="/" component={Home} exact />
-          <Route path="/product/:id" component={ProductsDescription} />
+          <Route
+            path="/product-list/product/:id"
+            component={ProductsDescription}
+          />
           <Route path="/cart" component={Cart} />
           <Route path="/register" component={RegisterForm} />
           <Route path="/login" component={LoginForm} />

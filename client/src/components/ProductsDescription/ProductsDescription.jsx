@@ -7,42 +7,37 @@ import Error from "../Error/Error";
 import Loader from "../Loader/Loader";
 import Review from "../Review/Review";
 import "./ProductsDescription.css";
-import Announcement from "../Annoucement/Annoucement";
-import Navbar from "../Navbar/Navbar";
-import Footer from "../Footer/Footer";
-import {useParams} from "react-router-dom"
-import { getAllProducts } from "../../actions/productAction";
-
-import axios from "axios"
-
+import { useParams } from "react-router-dom";
 
 function ProductsDescription() {
   const { addToast } = useToasts();
-  const {id} = useParams()
+  const { id } = useParams();
   const dispatch = useDispatch();
-  const [productList, setProductList] = useState([])
-  const [product,setProduct] = useState({})
+
   const [quantity, setquantity] = useState(1);
-  const [loading, setLoading] = useState(false)
 
-  axios.get("/api/products/allproducts").then((res) => setProductList(res.data)).catch(err => console.log(err))
+  const getproductbyidstate = useSelector(
+    (state) => state.getProductByIdReducer
+  );
 
-
+  const { product, loading, error } = getproductbyidstate;
 
   function addtocart() {
     dispatch(addToCart(product, quantity));
     addToast("You product was added successfully", { appearance: "success" });
   }
 
-
+  useEffect(() => {
+    dispatch(getProductById(id));
+  }, []);
 
   return (
     <div>
-       <Announcement/>
-        <Navbar/>
       {loading ? (
         <Loader />
-      )  : (
+      ) : error ? (
+        <Error error="Something wrong!" />
+      ) : (
         <div className="row  mt-2">
           <div className="col">
             <div
@@ -92,9 +87,6 @@ function ProductsDescription() {
           </div>
         </div>
       )}
-       <footer>
-          <Footer />
-        </footer>
     </div>
   );
 }
