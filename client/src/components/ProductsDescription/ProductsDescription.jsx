@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import { addToCart } from "../../actions/cartAction";
 import { getProductById } from "../../actions/productAction";
 import { useToasts } from "react-toast-notifications";
@@ -7,7 +8,9 @@ import Error from "../Error/Error";
 import Loader from "../Loader/Loader";
 import Review from "../Review/Review";
 import "./ProductsDescription.css";
-import { useParams } from "react-router-dom";
+import Newsletter from "../Newsletter/Newsletter";
+import Navbar from "../Navbar/Navbar";
+import Footer from "../Footer/Footer";
 
 function ProductsDescription() {
   const { addToast } = useToasts();
@@ -33,6 +36,7 @@ function ProductsDescription() {
 
   return (
     <div>
+      <Navbar />
       {loading ? (
         <Loader />
       ) : error ? (
@@ -87,6 +91,10 @@ function ProductsDescription() {
           </div>
         </div>
       )}
+      <Newsletter />
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 }
